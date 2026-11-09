@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KeepFlow - Notes Intelligentes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="logo-container">
+      <h1>KeepFlow</h1>
+    </div>
+    <div class="search-container">
+      <input type="text" id="input-recherche" placeholder="Rechercher dans les notes...">
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <aside class="app-sidebar">
+      <nav>
+        <button type="button" class="nav-link actif" data-vue="notes">📌 Notes</button>
+        <button type="button" class="nav-link" data-vue="archives">📥 Archives</button>
+        <button type="button" class="nav-link" data-vue="corbeille">🗑️ Corbeille</button>
+      </nav>
+      
+      <div class="sidebar-etiquettes">
+        <h3>Étiquettes</h3>
+        <div id="menu-etiquettes-container"></div>
+      </div>
+    </aside>
+
+    <main class="app-main" id="app-main">
+      <!-- Formulaire de création -->
+      <section class="creation-section">
+        <form id="formulaire-creation-note">
+          <input type="text" id="titre-note" placeholder="Titre...">
+          <textarea id="contenu-note" placeholder="Créer une note..."></textarea>
+          <div class="form-footer">
+            <select id="select-etiquette-creation">
+              <option value="">Aucune étiquette</option>
+            </select>
+            <button type="submit" class="btn-ajouter">Ajouter</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- VUE NOTES -->
+      <div id="vue-notes-container" class="vue-container">
+        <div id="section-epinglees" class="sous-section" style="display: none;">
+          <h2>Épinglées</h2>
+          <div class="grille-notes" id="notes-epinglees-container"></div>
+          <h2>Autres</h2>
+        </div>
+        <div class="grille-notes" id="notes-autres-container"></div>
+      </div>
+
+      <!-- VUE ARCHIVES -->
+      <div id="vue-archives-container" class="vue-container" style="display: none;">
+        <h2>Notes Archivées</h2>
+        <div class="grille-notes" id="notes-archives-container"></div>
+      </div>
+
+      <!-- VUE CORBEILLE -->
+      <div id="vue-corbeille-container" class="vue-container" style="display: none;">
+        <h2>Corbeille</h2>
+        <div class="grille-notes" id="notes-corbeille-container"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Fenêtre Modale de Modification -->
+  <div id="modal-modification" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <h2>Modifier la note</h2>
+      <form id="formulaire-modification">
+        <input type="hidden" id="modal-note-id">
+        <input type="text" id="modal-titre" placeholder="Titre...">
+        <textarea id="modal-contenu" placeholder="Contenu de la note..."></textarea>
+        
+        <select id="modal-select-etiquette">
+          <option value="">Aucune étiquette</option>
+        </select>
+
+        <div class="palette-couleurs">
+          <button type="button" class="pastille-couleur" style="background-color: #ffffff;" data-couleur="#ffffff" title="Blanc"></button>
+          <button type="button" class="pastille-couleur" style="background-color: #f28b82;" data-couleur="#f28b82" title="Corail"></button>
+          <button type="button" class="pastille-couleur" style="background-color: #fbbc04;" data-couleur="#fbbc04" title="Jaune"></button>
+          <button type="button" class="pastille-couleur" style="background-color: #fff475;" data-couleur="#fff475" title="Citron"></button>
+          <button type="button" class="pastille-couleur" style="background-color: #ccff90;" data-couleur="#ccff90" title="Vert clair"></button>
+          <button type="button" class="pastille-couleur" style="background-color: #a7ffeb;" data-couleur="#a7ffeb" title="Turquoise"></button>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" id="btn-fermer-modal" class="btn-secondaire">Annuler</button>
+          <button type="submit" class="btn-principal">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

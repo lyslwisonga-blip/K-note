@@ -1,0 +1,8 @@
+{
+  "nom": "KeepFlow",
+  "sujet": "Notes (Google Keep)",
+  "technologies": ["HTML", "CSS", "JavaScript vanilla"],
+  "auteur": "Lys lwisonga",
+  "version": "1.0.0",
+  "description": "Application web complète de notes interactive inspirée de Google Keep, développée avec du HTML, CSS et JavaScript vanilla et une persistance via localStorage."
+}
